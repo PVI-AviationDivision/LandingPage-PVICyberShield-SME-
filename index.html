@@ -504,10 +504,10 @@
   .modal-subtitle { color: rgba(255,255,255,0.75); font-size: 0.82rem; margin-top: 2px; }
   .modal-close { background: rgba(255,255,255,0.15); border: none; color: #fff; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
   .modal-close:hover { background: rgba(255,255,255,0.25); }
-  .modal-body { padding: 28px; }
+  .modal-body { padding: 16px 22px 20px; }
   .modal-step { display: none; }
   .modal-step.active { display: block; }
-  .modal-step-header { display: flex; gap: 8px; margin-bottom: 24px; }
+  .modal-step-header { display: flex; gap: 8px; margin-bottom: 14px; }
   .step-dot { width: 32px; height: 4px; border-radius: 2px; background: var(--border); flex: 1; transition: background 0.3s; }
   .step-dot.done { background: var(--pvi-blue); }
   .product-summary {
@@ -518,15 +518,15 @@
   .ps-row { display: flex; justify-content: space-between; font-size: 0.88rem; }
   .ps-row .label { color: var(--text-mid); }
   .ps-row .value { font-weight: 700; color: var(--text-dark); }
-  .modal-form .form-group { margin-bottom: 14px; }
+  .modal-form .form-group { margin-bottom: 9px; }
   .modal-form input, .modal-form select {
-    width: 100%; padding: 10px 13px; border: 1.5px solid var(--border);
-    border-radius: 8px; font-size: 0.88rem; font-family: inherit; outline: none;
+    width: 100%; padding: 8px 11px; border: 1.5px solid var(--border);
+    border-radius: 8px; font-size: 0.85rem; font-family: inherit; outline: none;
     transition: border-color 0.2s;
   }
   .modal-form input:focus, .modal-form select:focus { border-color: var(--pvi-blue); box-shadow: 0 0 0 3px rgba(0,82,204,0.1); }
   .modal-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .modal-form label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-mid); margin-bottom: 5px; }
+  .modal-form label { display: block; font-size: 0.75rem; font-weight: 600; color: var(--text-mid); margin-bottom: 3px; }
   .modal-actions { display: flex; gap: 12px; margin-top: 24px; }
   .btn-modal-back { flex: 1; padding: 12px; background: #f5f5f5; color: var(--text-mid); border: none; border-radius: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer; font-family: inherit; transition: background 0.2s; }
   .btn-modal-back:hover { background: #e8e8e8; }
@@ -591,7 +591,54 @@
     .modal-actions { flex-direction: column-reverse; }
     .hero-shield-wrap { display: none; }
     .hero-corner { display: none; }
+    .pkg-selector { grid-template-columns: 1fr 1fr; }
+    .gcnbh-actions { grid-template-columns: 1fr 1fr; }
   }
+
+  /* ── PKG SELECTOR IN MODAL ── */
+  .pkg-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  .pkg-card {
+    border: 2px solid var(--border); border-radius: 10px; padding: 11px 13px;
+    cursor: pointer; transition: all 0.2s; position: relative;
+  }
+  .pkg-card:hover { border-color: var(--pvi-blue2); box-shadow: 0 4px 12px rgba(0,82,204,0.1); }
+  .pkg-card.selected { border-color: var(--pvi-blue); background: #f0f7ff; }
+  .pkg-card .pkg-badge-m { position: absolute; top: 10px; right: 10px; font-size: 0.65rem; font-weight: 700; padding: 2px 8px; border-radius: 100px; }
+  .pkg-badge-m.std { background: #e0e7ff; color: #3730a3; }
+  .pkg-badge-m.enh { background: #dcfce7; color: #166534; }
+  .pkg-card-top { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
+  .pkg-card .pkg-check { display: none; width: 16px; height: 16px; background: var(--pvi-blue); border-radius: 50%; align-items: center; justify-content: center; color: #fff; font-size: 9px; flex-shrink: 0; }
+  .pkg-card.selected .pkg-check { display: flex; }
+  .pkg-card .pkg-name { font-weight: 800; font-size: 0.85rem; color: var(--text-dark); flex: 1; }
+  .pkg-card .pkg-rev { font-size: 0.68rem; color: var(--text-light); margin-bottom: 5px; }
+  .pkg-card .pkg-price { font-size: 1.05rem; font-weight: 900; color: var(--pvi-blue); line-height: 1; }
+  .pkg-card .pkg-price-unit { font-size: 0.68rem; font-weight: 500; color: var(--text-mid); }
+  .pkg-card .pkg-limit { font-size: 0.7rem; color: var(--text-mid); margin-top: 3px; }
+
+  /* ── QR PAYMENT ── */
+  .qr-payment-box { text-align: center; }
+  .qr-img { width: 190px; height: 190px; border-radius: 12px; border: 2px solid var(--border); margin: 0 auto 10px; display: block; background: #f8fafc; }
+  .qr-bank-info { background: #f0f7ff; border: 1px solid #cce0ff; border-radius: 10px; padding: 12px 14px; margin: 12px 0; text-align: left; font-size: 0.83rem; }
+  .qr-bank-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #dbeafe; gap: 8px; }
+  .qr-bank-row:last-child { border-bottom: none; }
+  .qr-bank-row .k { color: var(--text-mid); flex-shrink: 0; }
+  .qr-bank-row .v { font-weight: 700; color: var(--text-dark); text-align: right; }
+  .qr-amount-badge { background: var(--pvi-blue); color: #fff; border-radius: 8px; padding: 8px 20px; font-size: 1.4rem; font-weight: 900; display: inline-block; margin: 6px 0; }
+  .qr-note { font-size: 0.78rem; color: var(--text-light); line-height: 1.6; margin: 8px 0; text-align: left; background: #fffbeb; border-radius: 6px; padding: 8px 12px; border: 1px solid #fde68a; }
+  .qr-confirm-btn { width: 100%; padding: 14px; background: #16a34a; color: #fff; border: none; border-radius: 10px; font-weight: 700; font-size: 0.95rem; cursor: pointer; font-family: inherit; transition: all 0.2s; margin-top: 10px; }
+  .qr-confirm-btn:hover { background: #15803d; transform: translateY(-1px); }
+
+  /* ── GCNBH SUCCESS ── */
+  .gcnbh-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+  .btn-gcnbh { padding: 11px 8px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; font-family: inherit; border: none; transition: all 0.2s; }
+  .btn-gcnbh.dl { background: var(--pvi-blue); color: #fff; }
+  .btn-gcnbh.dl:hover { background: #003d99; }
+  .btn-gcnbh.em { background: #f0f7ff; color: var(--pvi-blue); border: 1.5px solid #cce0ff; }
+  .btn-gcnbh.em:hover { background: #dbeafe; }
+  .btn-gcnbh.pr { background: #f8fafc; color: var(--text-dark); border: 1.5px solid var(--border); }
+  .btn-gcnbh.pr:hover { background: #f1f5f9; }
+  .btn-gcnbh.dn { background: #16a34a; color: #fff; }
+  .btn-gcnbh.dn:hover { background: #15803d; }
 </style>
 </head>
 <body>
@@ -1063,7 +1110,7 @@
     <div class="modal-header">
       <div>
         <div class="modal-title">🛡️ Mua bảo hiểm Cyber Shield SME</div>
-        <div class="modal-subtitle" id="buyModalSubtitle">Bước 1 / 3 — Thông tin doanh nghiệp</div>
+        <div class="modal-subtitle" id="buyModalSubtitle">Bước 1 / 4 — Chọn gói & Thông tin</div>
       </div>
       <button class="modal-close" onclick="closeBuyModal()">✕</button>
     </div>
@@ -1072,67 +1119,81 @@
         <div class="step-dot done" id="dot1"></div>
         <div class="step-dot" id="dot2"></div>
         <div class="step-dot" id="dot3"></div>
+        <div class="step-dot" id="dot4"></div>
       </div>
 
-      <!-- STEP 1 -->
+      <!-- STEP 1: Chọn gói + Thông tin doanh nghiệp + Điều kiện -->
       <div class="modal-step active" id="buyStep1">
-        <div class="product-summary">
-          <div class="product-summary-title">Gói đã chọn</div>
-          <div class="product-summary-rows" id="selectedPkgRows">
-            <div class="ps-row"><span class="label">Sản phẩm</span><span class="value" id="ps_product">Cyber Shield SME – Gói 1</span></div>
-            <div class="ps-row"><span class="label">Phí bảo hiểm</span><span class="value" id="ps_price" style="color: var(--pvi-blue);">2.600.000 VNĐ/năm</span></div>
-            <div class="ps-row"><span class="label">Hạn mức</span><span class="value" id="ps_limit">500.000.000 VNĐ</span></div>
+        <div style="font-size: 0.78rem; font-weight: 700; color: var(--pvi-blue); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px;">Chọn gói bảo hiểm</div>
+        <div class="pkg-selector">
+          <div class="pkg-card selected" id="pkgCard1" onclick="selectPkg(1)">
+            <div class="pkg-card-top">
+              <div class="pkg-check">✓</div>
+              <div class="pkg-name">Gói 1</div>
+              <span class="pkg-badge-m std">STANDARD</span>
+            </div>
+            <div class="pkg-rev">Doanh thu &lt; 10 tỷ/năm</div>
+            <div class="pkg-price">2.600.000<span class="pkg-price-unit"> VNĐ/năm</span></div>
+            <div class="pkg-limit">Hạn mức: 500.000.000 VNĐ</div>
+          </div>
+          <div class="pkg-card" id="pkgCard2" onclick="selectPkg(2)">
+            <div class="pkg-card-top">
+              <div class="pkg-check">✓</div>
+              <div class="pkg-name">Gói 2</div>
+              <span class="pkg-badge-m enh">ENHANCED</span>
+            </div>
+            <div class="pkg-rev">Doanh thu 10–20 tỷ/năm</div>
+            <div class="pkg-price">5.000.000<span class="pkg-price-unit"> VNĐ/năm</span></div>
+            <div class="pkg-limit">Hạn mức: 1.000.000.000 VNĐ</div>
           </div>
         </div>
         <div class="modal-form">
           <div class="form-row">
-            <div class="form-group"><label>Tên doanh nghiệp *</label><input type="text" id="b_company" placeholder="Công ty TNHH ABC"></div>
+            <div class="form-group"><label>Tên doanh nghiệp / Hộ KD *</label><input type="text" id="b_company" placeholder="Công ty TNHH ABC"></div>
             <div class="form-group"><label>Mã số thuế *</label><input type="text" id="b_tax" placeholder="0123456789"></div>
           </div>
+          <div class="form-row">
+            <div class="form-group"><label>Người đại diện DN *</label><input type="text" id="b_rep" placeholder="Nguyễn Văn A"></div>
+            <div class="form-group"><label>Địa chỉ doanh nghiệp *</label><input type="text" id="b_addr" placeholder="123 Đường ABC, Hà Nội"></div>
+          </div>
+          <div style="background: #f8fafc; border-radius: 6px; padding: 5px 10px; margin: 2px 0 9px; font-size: 0.72rem; font-weight: 700; color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.05em;">Thông tin người mua bảo hiểm</div>
+          <div class="form-row">
+            <div class="form-group"><label>Họ và tên *</label><input type="text" id="b_buyer" placeholder="Trần Thị B"></div>
+            <div class="form-group"><label>Số điện thoại *</label><input type="tel" id="b_phone" placeholder="0901 234 567"></div>
+          </div>
+          <div class="form-group"><label>Email nhận GCNBH *</label><input type="email" id="b_email" placeholder="contact@company.vn"></div>
         </div>
-        <div style="margin-top: 20px; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden;">
-          <div style="background: #f0f7ff; padding: 10px 16px; font-size: 0.8rem; font-weight: 700; color: var(--pvi-blue); text-transform: uppercase; letter-spacing: 0.06em;">Điều kiện tham gia bảo hiểm — Xác nhận cả 5 tiêu chí</div>
-          <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;">
-            <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: #1e293b; cursor: pointer;">
-              <input type="checkbox" id="elig1" style="margin-top: 2px; flex-shrink: 0;">
-              <span>Doanh thu dưới <strong>26 tỷ VNĐ/năm</strong> (tương đương 1 triệu USD)</span>
-            </label>
-            <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: #1e293b; cursor: pointer;">
-              <input type="checkbox" id="elig2" style="margin-top: 2px; flex-shrink: 0;">
-              <span>Không phải là công ty con của công ty nước ngoài</span>
-            </label>
-            <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: #1e293b; cursor: pointer;">
-              <input type="checkbox" id="elig3" style="margin-top: 2px; flex-shrink: 0;">
-              <span>Không có tổn thất trong vòng <strong>3 năm gần nhất</strong></span>
-            </label>
-            <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: #1e293b; cursor: pointer;">
-              <input type="checkbox" id="elig4" style="margin-top: 2px; flex-shrink: 0;">
-              <span>Tính tới thời điểm tham gia bảo hiểm, không bị phạt do vi phạm về lộ dữ liệu</span>
-            </label>
-            <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: #1e293b; cursor: pointer;">
-              <input type="checkbox" id="elig5" style="margin-top: 2px; flex-shrink: 0;">
-              <span>Tính tới thời điểm tham gia bảo hiểm, không nhận thức có tình huống lộ dữ liệu nào</span>
-            </label>
-            <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 4px 0;">
-            <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; font-weight: 700; color: var(--pvi-blue); cursor: pointer;" id="eligAllLabel">
+        <div style="border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden;">
+          <div style="background: #f0f7ff; padding: 7px 14px; font-size: 0.72rem; font-weight: 700; color: var(--pvi-blue); text-transform: uppercase; letter-spacing: 0.06em;">Điều kiện tham gia — Xác nhận cả 5 tiêu chí</div>
+          <div style="padding: 8px 14px; display: flex; flex-direction: column; gap: 5px;">
+            <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.8rem; cursor: pointer;"><input type="checkbox" id="elig1" style="margin-top: 2px; flex-shrink: 0;"><span>Doanh thu dưới <strong>26 tỷ VNĐ/năm</strong> (tương đương 1 triệu USD)</span></label>
+            <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.8rem; cursor: pointer;"><input type="checkbox" id="elig2" style="margin-top: 2px; flex-shrink: 0;"><span>Không phải là công ty con của công ty nước ngoài</span></label>
+            <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.8rem; cursor: pointer;"><input type="checkbox" id="elig3" style="margin-top: 2px; flex-shrink: 0;"><span>Không có tổn thất an ninh mạng trong vòng <strong>3 năm gần nhất</strong></span></label>
+            <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.8rem; cursor: pointer;"><input type="checkbox" id="elig4" style="margin-top: 2px; flex-shrink: 0;"><span>Chưa bị xử phạt do vi phạm về lộ lọt dữ liệu</span></label>
+            <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.8rem; cursor: pointer;"><input type="checkbox" id="elig5" style="margin-top: 2px; flex-shrink: 0;"><span>Không nhận thức được tình huống lộ lọt dữ liệu nào đang tồn tại</span></label>
+            <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 1px 0;">
+            <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; font-weight: 700; color: var(--pvi-blue); cursor: pointer;">
               <input type="checkbox" id="eligAll" style="margin-top: 2px; flex-shrink: 0;" onchange="toggleAllElig(this.checked)">
               <span>✓ Xác nhận cả 5 điều kiện trên</span>
             </label>
           </div>
         </div>
-        <div class="modal-actions" style="margin-top: 20px;">
+        <div style="text-align:right; margin-top: 10px; margin-bottom: -4px;">
+          <button onclick="demoFill()" style="background:none;border:1px dashed #94a3b8;color:#64748b;font-size:0.72rem;padding:3px 10px;border-radius:6px;cursor:pointer;font-family:inherit;">⚡ Demo — tự điền</button>
+        </div>
+        <div class="modal-actions" style="margin-top: 10px;">
           <button class="btn-modal-back" onclick="closeBuyModal()">Huỷ</button>
           <button class="btn-modal-next" onclick="buyStep(2)">Tiếp tục →</button>
         </div>
       </div>
 
-      <!-- STEP 2 -->
+      <!-- STEP 2: Xác nhận hợp đồng -->
       <div class="modal-step" id="buyStep2">
         <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 16px;">Xác nhận thông tin hợp đồng</h4>
         <div class="confirm-grid" id="confirmGrid"></div>
         <div class="price-highlight">
           <div class="ph-label">Phí bảo hiểm cần thanh toán</div>
-          <div class="ph-value">2.600.000 VNĐ</div>
+          <div class="ph-value" id="phValue">2.600.000 VNĐ</div>
           <div class="ph-sub">Hiệu lực 1 năm kể từ ngày thanh toán</div>
         </div>
         <div class="terms-check">
@@ -1141,36 +1202,66 @@
         </div>
         <div class="modal-actions">
           <button class="btn-modal-back" onclick="buyStep(1)">← Quay lại</button>
-          <button class="btn-modal-next" onclick="buyStep(3)">Xác nhận & Thanh toán</button>
+          <button class="btn-modal-next" onclick="buyStep(3)">Xác nhận & Thanh toán →</button>
         </div>
       </div>
 
-      <!-- STEP 3 -->
+      <!-- STEP 3: Thanh toán QR chuyển khoản -->
       <div class="modal-step" id="buyStep3">
-        <div class="payment-processing" id="processingView">
-          <div class="spinner"></div>
-          <p style="font-size: 0.9rem; color: var(--text-mid);">Đang xử lý thanh toán và phát hành chứng nhận bảo hiểm...</p>
+        <div class="qr-payment-box">
+          <p style="font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; color: var(--text-dark);">Quét mã QR để chuyển khoản</p>
+          <p style="font-size: 0.78rem; color: var(--text-mid); margin-bottom: 12px;">Dùng app ngân hàng hoặc ví điện tử hỗ trợ VietQR</p>
+          <img id="qrImg" class="qr-img" src="" alt="QR chuyển khoản" onerror="this.style.background='#f0f7ff'; this.alt='Đang tải QR...'">
+          <div class="qr-amount-badge" id="qrAmountBadge">2.600.000 VNĐ</div>
+          <div class="qr-bank-info">
+            <div class="qr-bank-row"><span class="k">Ngân hàng</span><span class="v">Vietcombank (VCB)</span></div>
+            <div class="qr-bank-row"><span class="k">Số tài khoản</span><span class="v">0011 0010 6234 523</span></div>
+            <div class="qr-bank-row"><span class="k">Chủ tài khoản</span><span class="v">TỔNG CÔNG TY BẢO HIỂM PVI</span></div>
+            <div class="qr-bank-row"><span class="k">Số tiền</span><span class="v" id="qrBankAmount" style="color: var(--pvi-blue);">2.600.000 VNĐ</span></div>
+            <div class="qr-bank-row"><span class="k">Nội dung CK</span><span class="v" id="qrContent" style="color: var(--pvi-blue); font-family: monospace;">PHICYB CYB-2025-000000</span></div>
+          </div>
+          <div class="qr-note">⚠️ Ghi đúng <strong>nội dung chuyển khoản</strong> để hệ thống tự động xác nhận &amp; cấp đơn. Sau khi chuyển khoản thành công, nhấn nút bên dưới.</div>
+          <button class="qr-confirm-btn" onclick="confirmPayment()">✅ Tôi đã chuyển khoản — Cấp đơn bảo hiểm</button>
         </div>
-        <div id="successView" style="display: none; text-align: center;">
+        <div class="modal-actions" style="margin-top: 10px;">
+          <button class="btn-modal-back" onclick="buyStep(2)">← Quay lại</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Thành công + GCNBH -->
+      <div class="modal-step" id="buyStep4">
+        <div style="text-align: center;">
           <span class="success-icon">🎉</span>
-          <div class="success-title">Chúc mừng! Đơn bảo hiểm đã được phát hành</div>
-          <p class="success-desc">Chứng nhận bảo hiểm điện tử (e-Policy) đã được gửi về email của bạn. Doanh nghiệp bạn đã được bảo vệ bởi Cyber Shield SME.</p>
-          <div class="cert-preview" id="certPreview">
-            <div class="cert-label">Chứng nhận bảo hiểm</div>
-            <div class="cert-value" id="certCompany">—</div>
-            <div class="cert-label" style="margin-top: 8px;">Số hợp đồng</div>
-            <div class="cert-value cert-id" id="certId">—</div>
-            <div style="display: flex; justify-content: space-between; margin-top: 8px;">
-              <div><div class="cert-label">Hạn mức</div><div class="cert-value">260.000.000 VNĐ</div></div>
-              <div style="text-align: right;"><div class="cert-label">Hiệu lực</div><div class="cert-value" id="certDate">—</div></div>
+          <div class="success-title">Đơn bảo hiểm đã được phát hành!</div>
+          <p class="success-desc">GCNBH đã gửi tới email <strong id="certEmail">—</strong>. Doanh nghiệp đã được bảo vệ bởi Cyber Shield SME.</p>
+        </div>
+        <div class="cert-preview" style="margin: 14px 0;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <div>
+              <div class="cert-label">GIẤY CHỨNG NHẬN BẢO HIỂM</div>
+              <div style="color: var(--cyan); font-size: 0.75rem; font-weight: 700; margin-top: 2px;">AN NINH MẠNG · PVI CYBER SHIELD SME</div>
+            </div>
+            <div style="text-align: right;">
+              <div class="cert-label">Số</div>
+              <div class="cert-value cert-id" id="certId">—</div>
             </div>
           </div>
-          <div style="display: flex; gap: 12px; margin-top: 20px;">
-            <button class="btn-modal-back" style="flex: 1;" onclick="window.print()">🖨️ In chứng nhận</button>
-            <button class="btn-modal-next" style="flex: 1;" onclick="closeBuyModal()">✓ Hoàn tất</button>
+          <div class="cert-label">Doanh nghiệp</div>
+          <div class="cert-value" id="certCompany">—</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+            <div><div class="cert-label">Gói bảo hiểm</div><div class="cert-value" id="certPkg">—</div></div>
+            <div><div class="cert-label">Hạn mức</div><div class="cert-value" id="certLimit">—</div></div>
+            <div><div class="cert-label">Ngày cấp</div><div class="cert-value" id="certIssued">—</div></div>
+            <div><div class="cert-label">Hiệu lực đến</div><div class="cert-value" id="certExpiry">—</div></div>
           </div>
-          <p style="font-size: 0.78rem; color: var(--text-light); margin-top: 12px; line-height: 1.5;">Hotline hỗ trợ 24/7: <strong>1900 545 515</strong></p>
         </div>
+        <div class="gcnbh-actions">
+          <button class="btn-gcnbh dl" onclick="downloadGCNBH()">📄 Tải GCNBH (PDF)</button>
+          <button class="btn-gcnbh em" id="btnSendEmail" onclick="sendGCNBHEmail(this)">📧 Gửi lại về email</button>
+          <button class="btn-gcnbh pr" onclick="printGCNBH()">🖨️ In GCNBH</button>
+          <button class="btn-gcnbh dn" onclick="closeBuyModal()">✓ Hoàn tất</button>
+        </div>
+        <p style="font-size: 0.78rem; color: var(--text-light); text-align: center; margin-top: 14px;">Hotline hỗ trợ 24/7: <strong>1900 545 515</strong></p>
       </div>
     </div>
   </div>
@@ -1327,18 +1418,22 @@
 
   // ── BUY MODAL
   let currentBuyStep = 1;
-  const pkgData = {
-    1: { label: 'Gói 1 – Doanh thu < 10 tỷ/năm', price: '2.600.000 VNĐ/năm', limit: '500.000.000 VNĐ' },
-    2: { label: 'Gói 2 – Doanh thu 10–20 tỷ/năm', price: '5.000.000 VNĐ/năm', limit: '1.000.000.000 VNĐ' }
-  };
   let selectedPkg = 1;
+  let currentPolicyId = '';
+
+  const pkgData = {
+    1: { label: 'Gói 1 – Standard', rev: 'Doanh thu < 10 tỷ/năm', price: '2.600.000 VNĐ/năm', priceNum: 2600000, limit: '500.000.000 VNĐ', badge: 'STANDARD' },
+    2: { label: 'Gói 2 – Enhanced', rev: 'Doanh thu 10–20 tỷ/năm', price: '5.000.000 VNĐ/năm', priceNum: 5000000, limit: '1.000.000.000 VNĐ', badge: 'ENHANCED' }
+  };
+
+  function selectPkg(n) {
+    selectedPkg = n;
+    document.getElementById('pkgCard1').classList.toggle('selected', n === 1);
+    document.getElementById('pkgCard2').classList.toggle('selected', n === 2);
+  }
 
   function openBuyModal(pkg) {
-    selectedPkg = pkg || 1;
-    const p = pkgData[selectedPkg];
-    document.getElementById('ps_product').textContent = 'Cyber Shield SME – ' + p.label;
-    document.getElementById('ps_price').textContent = p.price;
-    document.getElementById('ps_limit').textContent = p.limit;
+    selectPkg(pkg || 1);
     buyStep(1);
     document.getElementById('buyModal').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -1357,69 +1452,392 @@
       document.getElementById('eligAll').checked = allChecked;
     }
   });
+
   function closeBuyModal() {
     document.getElementById('buyModal').classList.remove('active');
     document.body.style.overflow = '';
+    // reset checkboxes & terms
+    ['elig1','elig2','elig3','elig4','elig5','eligAll','termsCheck'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.checked = false;
+    });
     buyStep(1);
-    document.getElementById('processingView').style.display = 'block';
-    document.getElementById('successView').style.display = 'none';
   }
+
   function buyStep(n) {
+    // Validate step 1 → 2
     if (n === 2) {
-      // validate step 1
       const co = document.getElementById('b_company').value.trim();
       const tax = document.getElementById('b_tax').value.trim();
-      if (!co || !tax) { alert('Vui lòng điền Tên doanh nghiệp và Mã số thuế.'); return; }
+      const rep = document.getElementById('b_rep').value.trim();
+      const buyer = document.getElementById('b_buyer').value.trim();
+      const phone = document.getElementById('b_phone').value.trim();
+      const email = document.getElementById('b_email').value.trim();
+      if (!co || !tax || !rep || !buyer || !phone || !email) {
+        alert('Vui lòng điền đầy đủ các trường bắt buộc (*).');
+        return;
+      }
       const allChecked = ['elig1','elig2','elig3','elig4','elig5'].every(id => document.getElementById(id).checked);
       if (!allChecked) { alert('Vui lòng xác nhận đủ 5 điều kiện tham gia bảo hiểm.'); return; }
+    }
+    // Validate step 2 → 3
+    if (n === 3) {
+      if (!document.getElementById('termsCheck').checked) {
+        alert('Vui lòng xác nhận đã đọc và đồng ý với điều khoản bảo hiểm.');
+        return;
+      }
+      setupPaymentQR();
     }
     currentBuyStep = n;
     document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
     document.getElementById('buyStep' + n).classList.add('active');
-    const subtitles = ['Bước 1 / 3 — Thông tin doanh nghiệp & Điều kiện', 'Bước 2 / 3 — Xác nhận hợp đồng', 'Bước 3 / 3 — Thanh toán & Cấp đơn'];
-    document.getElementById('buyModalSubtitle').textContent = subtitles[n-1];
-    for (let i = 1; i <= 3; i++) {
+    const subtitles = [
+      'Bước 1 / 4 — Chọn gói & Thông tin doanh nghiệp',
+      'Bước 2 / 4 — Xác nhận hợp đồng',
+      'Bước 3 / 4 — Thanh toán chuyển khoản',
+      'Bước 4 / 4 — Cấp đơn thành công'
+    ];
+    document.getElementById('buyModalSubtitle').textContent = subtitles[n - 1];
+    for (let i = 1; i <= 4; i++) {
       document.getElementById('dot' + i).classList.toggle('done', i <= n);
     }
     if (n === 2) fillConfirm();
-    if (n === 3) runPayment();
   }
 
   function fillConfirm() {
     const co = document.getElementById('b_company').value || '(chưa điền)';
     const tax = document.getElementById('b_tax').value || '(chưa điền)';
+    const rep = document.getElementById('b_rep').value || '(chưa điền)';
+    const addr = document.getElementById('b_addr').value || '(chưa điền)';
+    const buyer = document.getElementById('b_buyer').value || '(chưa điền)';
+    const phone = document.getElementById('b_phone').value || '(chưa điền)';
+    const email = document.getElementById('b_email').value || '(chưa điền)';
     const p = pkgData[selectedPkg];
     const today = new Date();
-    const expire = new Date(today); expire.setFullYear(expire.getFullYear()+1);
+    const expire = new Date(today); expire.setFullYear(expire.getFullYear() + 1);
     const fmt = d => d.toLocaleDateString('vi-VN');
     document.getElementById('confirmGrid').innerHTML = `
       <div class="confirm-row"><span class="key">Doanh nghiệp</span><span class="val">${co}</span></div>
       <div class="confirm-row"><span class="key">Mã số thuế</span><span class="val">${tax}</span></div>
-      <div class="confirm-row"><span class="key">Sản phẩm</span><span class="val">Cyber Shield SME – ${p.label}</span></div>
-      <div class="confirm-row"><span class="key">Phí bảo hiểm</span><span class="val">${p.price}</span></div>
+      <div class="confirm-row"><span class="key">Người đại diện</span><span class="val">${rep}</span></div>
+      <div class="confirm-row"><span class="key">Địa chỉ</span><span class="val">${addr}</span></div>
+      <div class="confirm-row"><span class="key">Người mua BH</span><span class="val">${buyer} · ${phone}</span></div>
+      <div class="confirm-row"><span class="key">Email</span><span class="val">${email}</span></div>
+      <div class="confirm-row"><span class="key">Gói bảo hiểm</span><span class="val">${p.label} (${p.badge})</span></div>
+      <div class="confirm-row"><span class="key">Phí bảo hiểm</span><span class="val" style="color:var(--pvi-blue);">${p.price}</span></div>
       <div class="confirm-row"><span class="key">Hạn mức</span><span class="val">${p.limit}</span></div>
       <div class="confirm-row"><span class="key">Hiệu lực</span><span class="val">${fmt(today)} – ${fmt(expire)}</span></div>
     `;
-    document.querySelector('.ph-value').textContent = p.price.replace('/năm','').trim();
+    document.getElementById('phValue').textContent = p.price.replace('/năm', '').trim();
   }
 
-  function runPayment() {
-    if (!document.getElementById('termsCheck').checked) {
-      alert('Vui lòng xác nhận đã đọc và đồng ý với điều khoản bảo hiểm.');
-      buyStep(2); return;
-    }
-    const co = document.getElementById('b_company').value || 'Doanh nghiệp';
+  function setupPaymentQR() {
+    const p = pkgData[selectedPkg];
+    currentPolicyId = 'CYB-' + new Date().getFullYear() + '-' + String(Date.now()).slice(-6);
+    const content = 'PHICYB ' + currentPolicyId;
+    const bank = 'VCB';
+    const account = '0011001062345230'; // Số TK PVI – cần cập nhật TK thực tế
+    const qrUrl = `https://img.vietqr.io/image/${bank}-${account}-compact2.png?amount=${p.priceNum}&addInfo=${encodeURIComponent(content)}&accountName=${encodeURIComponent('BAO HIEM PVI')}`;
+    document.getElementById('qrImg').src = qrUrl;
+    document.getElementById('qrAmountBadge').textContent = p.price.replace('/năm', '').trim();
+    document.getElementById('qrBankAmount').textContent = p.price.replace('/năm', '').trim();
+    document.getElementById('qrContent').textContent = content;
+  }
+
+  function confirmPayment() {
+    const p = pkgData[selectedPkg];
     const today = new Date();
-    const expire = new Date(today); expire.setFullYear(expire.getFullYear()+1);
+    const expire = new Date(today); expire.setFullYear(expire.getFullYear() + 1);
     const fmt = d => d.toLocaleDateString('vi-VN');
-    const policyId = 'CYB-' + today.getFullYear() + '-' + String(Date.now()).slice(-6);
-    setTimeout(() => {
-      document.getElementById('processingView').style.display = 'none';
-      document.getElementById('successView').style.display = 'block';
-      document.getElementById('certCompany').textContent = co;
-      document.getElementById('certId').textContent = policyId;
-      document.getElementById('certDate').textContent = `${fmt(today)} – ${fmt(expire)}`;
-    }, 2200);
+    // Populate success screen
+    document.getElementById('certCompany').textContent = document.getElementById('b_company').value;
+    document.getElementById('certId').textContent = currentPolicyId;
+    document.getElementById('certEmail').textContent = document.getElementById('b_email').value;
+    document.getElementById('certPkg').textContent = p.label;
+    document.getElementById('certLimit').textContent = p.limit;
+    document.getElementById('certIssued').textContent = fmt(today);
+    document.getElementById('certExpiry').textContent = fmt(expire);
+    buyStep(4);
+  }
+
+  // ── GCNBH GENERATOR – dùng đúng thiết kế GCNBH_CyberShield_SME
+  function gcnbhHTML() {
+    const co    = document.getElementById('b_company').value;
+    const tax   = document.getElementById('b_tax').value;
+    const rep   = document.getElementById('b_rep').value;
+    const addr  = document.getElementById('b_addr').value;
+    const buyer = document.getElementById('b_buyer').value;
+    const phone = document.getElementById('b_phone').value;
+    const email = document.getElementById('b_email').value;
+    const today  = new Date();
+    const expire = new Date(today); expire.setFullYear(expire.getFullYear() + 1);
+    const fmt = d => `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
+    const isPkg2 = selectedPkg === 2;
+    // Logo: dùng đường dẫn tuyệt đối từ trang hiện tại
+    const base = window.location.href.replace(/[^\/]*$/, '');
+    const logoSrc = base + 'pvi-logo.png';
+    // Style cho field đã điền
+    const fv = v => `<div style="border-bottom:1.5px solid #0f172a;height:22px;display:flex;align-items:flex-end;padding-bottom:2px;font-size:0.88rem;font-weight:600;color:#0f172a;">${v}</div>`;
+    // Checkbox đã tick (cho điều kiện)
+    const cbChecked = `<div style="width:12px;height:12px;border:1.5px solid #0F2A4A;border-radius:2px;background:#0077A8;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="8" height="8" viewBox="0 0 8 8"><polyline points="1,4 3,6.5 7,1.5" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>`;
+    const pkg1Style = !isPkg2 ? 'border:2px solid #0077A8;background:#f0f9ff;' : 'border:2px solid #e2e8f0;';
+    const pkg2Style =  isPkg2 ? 'border:2px solid #0077A8;background:#f0f9ff;' : 'border:2px solid #e2e8f0;';
+    const chk1 = !isPkg2 ? `<div style="width:18px;height:18px;border:2px solid #0F2A4A;border-radius:3px;background:#0077A8;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="11" height="11" viewBox="0 0 11 11"><polyline points="1.5,5.5 4,8.5 9.5,2" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>` : `<div style="width:18px;height:18px;border:2px solid #0F2A4A;border-radius:3px;background:#fff;flex-shrink:0;"></div>`;
+    const chk2 =  isPkg2 ? `<div style="width:18px;height:18px;border:2px solid #0F2A4A;border-radius:3px;background:#0077A8;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="11" height="11" viewBox="0 0 11 11"><polyline points="1.5,5.5 4,8.5 9.5,2" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>` : `<div style="width:18px;height:18px;border:2px solid #0F2A4A;border-radius:3px;background:#fff;flex-shrink:0;"></div>`;
+
+    return `<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8">
+<title>GCNBH – ${currentPolicyId}</title>
+<base href="${base}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#00B4D8;--accent2:#0077A8;--dark:#0f172a;--mid:#475569;--light:#64748b;--border:#e2e8f0;--bg:#f8fafc;--red:#ef4444;--navy:#0F2A4A;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Be Vietnam Pro',Arial,sans-serif;background:var(--bg);color:var(--dark);padding:32px 16px;}
+.cc{max-width:820px;margin:0 auto;background:#fff;padding:40px 44px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.08);border:1px solid var(--border);}
+.ch{display:flex;justify-content:space-between;align-items:center;border-bottom:2.5px solid var(--accent);padding-bottom:20px;margin-bottom:24px;}
+.lw img{height:52px;display:block;}
+.lf{display:none;font-size:1.4rem;font-weight:900;color:var(--navy);letter-spacing:.05em;}
+.cts{text-align:center;flex:1;}
+.ct{font-size:1.3rem;font-weight:800;color:var(--dark);text-transform:uppercase;letter-spacing:.03em;}
+.csub{font-size:.8rem;color:var(--accent);font-weight:700;letter-spacing:.07em;margin-top:2px;}
+.cn{font-size:.9rem;font-weight:700;color:var(--mid);margin-top:6px;}
+.idr{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--mid);margin-top:4px;justify-content:center;}
+.st{font-size:.8rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;border-bottom:1.5px solid var(--border);padding-bottom:5px;margin:22px 0 12px;display:flex;align-items:center;gap:6px;}
+.st::before{content:'';display:inline-block;width:4px;height:14px;background:var(--accent);border-radius:2px;flex-shrink:0;}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-bottom:6px;}
+.fg.c1{grid-template-columns:1fr;}
+.fg.c3{grid-template-columns:1fr 1fr 1fr;}
+.ff{display:flex;flex-direction:column;gap:3px;}
+.fl{font-size:.7rem;font-weight:700;color:var(--light);text-transform:uppercase;letter-spacing:.06em;}
+.pb{background:#f0f9ff;border:1px solid #bae6fd;border-left:4px solid var(--accent);border-radius:6px;padding:12px 16px;margin-bottom:6px;}
+.pbl{font-size:.75rem;font-weight:700;color:var(--navy);margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em;}
+.pr{display:flex;align-items:flex-end;gap:5px;flex-wrap:nowrap;white-space:nowrap;overflow:hidden;}
+.pt{font-size:.78rem;font-weight:600;color:var(--mid);white-space:nowrap;}
+.pw{display:inline-block;height:18px;}
+.pt-t{width:28px;border-bottom:0;}
+.pw-d{display:inline-flex;align-items:flex-end;padding-bottom:1px;font-size:.88rem;font-weight:700;color:var(--dark);}
+.pkw{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:6px;}
+.pkc{border-radius:8px;padding:14px 16px;position:relative;}
+.pkcr{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.pkn{font-size:1rem;font-weight:800;color:var(--dark);}
+.pkb{margin-left:auto;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:2px 7px;border-radius:20px;}
+.pkb.s{color:var(--accent2);background:#e0f7ff;border:1px solid #bae6fd;}
+.pkb.e{color:#059669;background:#d1fae5;border:1px solid #6ee7b7;}
+.pkr{font-size:.72rem;color:var(--light);font-style:italic;margin-bottom:8px;}
+.pkpr{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;}
+.pkpl{font-size:.75rem;color:var(--mid);}
+.pkpv{font-size:1.05rem;font-weight:800;color:var(--navy);}
+.pkpu{font-size:.7rem;color:var(--light);}
+.pkd{border:none;border-top:1px solid var(--border);margin:8px 0;}
+.pklr{display:flex;justify-content:space-between;font-size:.75rem;margin-bottom:3px;color:var(--mid);}
+.pklr .val{font-weight:700;color:var(--accent2);}
+.pksl{font-size:.68rem;color:var(--light);padding-left:10px;margin-bottom:2px;display:flex;justify-content:space-between;}
+table{width:100%;border-collapse:collapse;font-size:.82rem;margin-bottom:6px;}
+table th,table td{border:1px solid var(--border);padding:9px 12px;text-align:left;}
+table thead tr{background:var(--navy);color:#fff;}
+table thead th{font-size:.78rem;letter-spacing:.03em;}
+table thead th:not(:first-child){text-align:center;}
+table tbody tr:nth-child(even){background:#f8fafc;}
+table tbody td:not(:first-child){text-align:center;font-weight:600;color:var(--accent2);}
+table .rg td{font-weight:700;color:var(--navy);background:#e8f4fb;font-size:.78rem;}
+table .sl td:first-child{padding-left:22px;color:var(--mid);font-size:.78rem;}
+table tfoot td{font-weight:700;background:#f0f9ff;border-top:2px solid var(--navy);}
+table tfoot td:not(:first-child){text-align:center;color:var(--navy);}
+.cb2{border:1px solid var(--border);border-top:3px solid var(--accent2);border-radius:6px;padding:12px 14px;background:var(--bg);margin-bottom:6px;}
+.cbt{font-size:.75rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;}
+.ci{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;font-size:.78rem;color:var(--dark);line-height:1.4;}
+.nb{background:#fffbeb;border:1px solid #fcd34d;border-left:3px solid #f59e0b;border-radius:4px;padding:8px 12px;font-size:.75rem;color:#78350f;margin-bottom:6px;line-height:1.5;}
+.nb2{background:#f0f9ff;border:1px solid #bae6fd;border-left:3px solid var(--accent);border-radius:4px;padding:8px 12px;font-size:.75rem;color:#0c4a6e;margin-bottom:6px;line-height:1.5;}
+.cf{border-top:1px solid var(--border);padding-top:18px;margin-top:20px;display:flex;gap:0;align-items:flex-start;justify-content:center;}
+.fr-rule{font-size:.75rem;color:var(--light);line-height:1.7;padding-right:24px;border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;flex-shrink:0;min-width:110px;max-width:130px;}
+.sb{display:grid;grid-template-columns:1fr 1fr;gap:0;flex:1;}
+.sc{text-align:center;padding:0 20px;}
+.sc:first-child{border-right:1px solid var(--border);}
+.sct{font-size:.78rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;}
+.scs{font-size:.68rem;color:var(--light);margin-top:2px;margin-bottom:52px;}
+.scl{border-top:1.5px solid #94a3b8;padding-top:5px;font-size:.68rem;color:var(--light);font-style:italic;}
+.pbtn{text-align:center;margin:20px auto 0;}
+.pbtn button{background:var(--navy);color:#fff;border:none;padding:10px 36px;font-family:inherit;font-size:.9rem;font-weight:700;cursor:pointer;border-radius:6px;letter-spacing:.04em;}
+.pbtn button:hover{background:var(--accent2);}
+@media print{
+  @page{size:A4 portrait;margin:10mm 12mm;}
+  body{background:#fff;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .cc{box-shadow:none;border:none;border-radius:0;margin:0;max-width:100%;padding:0;}
+  .pbtn{display:none!important;}
+  .pbr{page-break-before:always;padding-top:4px;}
+}
+</style></head><body>
+<div class="cc">
+  <div class="ch">
+    <div class="lw">
+      <img src="${logoSrc}" alt="PVI Insurance" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="lf">PVI</div>
+      <div style="font-size:.68rem;color:var(--mid);margin-top:4px;line-height:1.4;">Tổng Công Ty Bảo Hiểm PVI<br>www.pvi.com.vn · 1900 545 515</div>
+    </div>
+    <div class="cts">
+      <div class="ct">Giấy Chứng Nhận Bảo Hiểm</div>
+      <div class="csub">AN NINH MẠNG · PVI CYBER SHIELD SME</div>
+      <div class="cn">Số: ${currentPolicyId}</div>
+      <div class="idr">Ngày cấp: <strong style="color:var(--dark);">${fmt(today)}</strong></div>
+    </div>
+  </div>
+
+  <p style="font-size:.82rem;color:var(--mid);line-height:1.7;margin-bottom:20px;text-align:justify;">
+    Trên cơ sở yêu cầu Bảo hiểm Cyber Shield SME, Bên mua bảo hiểm đã đọc, hiểu rõ, đồng ý các điều kiện, điều khoản của chương trình bảo hiểm và đồng ý với Chính sách Bảo vệ dữ liệu cá nhân của Bảo hiểm PVI
+    (<a href="https://www.pvi.com.vn/chinhsachbaomat" target="_blank" style="color:var(--accent2);font-weight:600;">Quy định tại đây</a>).
+    Bảo hiểm PVI đảm bảo rủi ro và nhận Bảo hiểm Cyber Shield SME với các điều kiện, điều khoản bảo hiểm ghi trên Giấy chứng nhận bảo hiểm này và/hoặc Sửa đổi bổ sung (nếu có).
+  </p>
+
+  <div class="st">Thông tin bên được bảo hiểm</div>
+  <div class="fg c1" style="margin-bottom:12px;"><div class="ff"><div class="fl">Tên Doanh Nghiệp / Hộ Kinh Doanh</div>${fv(co)}</div></div>
+  <div class="fg" style="margin-bottom:12px;">
+    <div class="ff"><div class="fl">Mã Số Thuế</div>${fv(tax)}</div>
+    <div class="ff"><div class="fl">Người Đại Diện Doanh Nghiệp</div>${fv(rep)}</div>
+  </div>
+  <div class="fg c1" style="margin-bottom:14px;"><div class="ff"><div class="fl">Địa Chỉ Doanh Nghiệp</div>${fv(addr)}</div></div>
+
+  <div class="st">Thông tin liên hệ người mua bảo hiểm</div>
+  <div class="fg c3" style="margin-bottom:14px;">
+    <div class="ff"><div class="fl">Họ và Tên</div>${fv(buyer)}</div>
+    <div class="ff"><div class="fl">Số Điện Thoại</div>${fv(phone)}</div>
+    <div class="ff"><div class="fl">Email</div>${fv(email)}</div>
+  </div>
+
+  <div class="st">Hiệu lực bảo hiểm</div>
+  <div class="pb">
+    <div class="pbl">⏱ Thời hạn bảo hiểm: 12 tháng</div>
+    <div class="pr">
+      <span class="pt">Từ</span>
+      <span class="pw-d">00</span><span class="pt">giờ</span>
+      <span class="pw-d">00</span><span class="pt">phút, ngày</span>
+      <span class="pw-d">${fmt(today)}</span>
+      <span style="margin:0 8px;font-size:1rem;color:var(--mid);">→</span>
+      <span class="pt">đến</span>
+      <span class="pw-d">00</span><span class="pt">giờ</span>
+      <span class="pw-d">00</span><span class="pt">phút, ngày</span>
+      <span class="pw-d">${fmt(expire)}</span>
+    </div>
+  </div>
+
+  <div class="st">Gói Bảo Hiểm</div>
+  <div class="pkw">
+    <div class="pkc" style="${pkg1Style}">
+      <div class="pkcr">${chk1}<div class="pkn">Gói 1</div><span class="pkb s">Standard</span></div>
+      <div class="pkr">Doanh thu &lt; 10 tỷ / năm</div>
+      <div class="pkpr"><span class="pkpl">Phí bảo hiểm</span><span><span class="pkpv">2.600.000</span><span class="pkpu"> VNĐ/năm</span></span></div>
+      <hr class="pkd">
+      <div class="pklr"><span>Hạn mức bảo hiểm</span><span class="val">500.000.000 VNĐ</span></div>
+      <div class="pksl"><span>– Khôi phục dữ liệu (50%)</span><span>250.000.000</span></div>
+      <div class="pksl"><span>– Tư vấn quản lý khủng hoảng (20%)</span><span>100.000.000</span></div>
+      <div class="pksl" style="margin-top:3px;font-size:.65rem;color:var(--red);"><span>Mức miễn thường / vụ</span><span style="font-weight:700;">8.000.000 VNĐ</span></div>
+    </div>
+    <div class="pkc" style="${pkg2Style}">
+      <div class="pkcr">${chk2}<div class="pkn">Gói 2</div><span class="pkb e">Enhanced</span></div>
+      <div class="pkr">Doanh thu 10 – 20 tỷ / năm</div>
+      <div class="pkpr"><span class="pkpl">Phí bảo hiểm</span><span><span class="pkpv">5.000.000</span><span class="pkpu"> VNĐ/năm</span></span></div>
+      <hr class="pkd">
+      <div class="pklr"><span>Hạn mức bảo hiểm</span><span class="val">1.000.000.000 VNĐ</span></div>
+      <div class="pksl"><span>– Khôi phục dữ liệu (50%)</span><span>500.000.000</span></div>
+      <div class="pksl"><span>– Tư vấn quản lý khủng hoảng (20%)</span><span>200.000.000</span></div>
+      <div class="pksl" style="margin-top:3px;font-size:.65rem;color:var(--red);"><span>Mức miễn thường / vụ</span><span style="font-weight:700;">8.000.000 VNĐ</span></div>
+    </div>
+  </div>
+
+  <div class="st">Phạm vi bảo hiểm &amp; Hạn mức trách nhiệm</div>
+  <table>
+    <thead><tr><th style="width:55%;">Phạm vi bảo hiểm</th><th>Gói 1</th><th>Gói 2</th></tr></thead>
+    <tbody>
+      <tr class="rg"><td colspan="3">● CHI PHÍ BÊN THỨ NHẤT — First Party Costs</td></tr>
+      <tr class="sl"><td>Khôi phục dữ liệu cá nhân (sub-limit 50%)</td><td>250.000.000</td><td>500.000.000</td></tr>
+      <tr class="sl"><td>Tư vấn quản lý khủng hoảng (sub-limit 20%)</td><td>100.000.000</td><td>200.000.000</td></tr>
+      <tr class="rg"><td colspan="3">● TRÁCH NHIỆM BÊN THỨ BA — Third Party Liability</td></tr>
+      <tr class="sl"><td>Trách nhiệm pháp lý &amp; phạt vi phạm lộ lọt dữ liệu</td><td>500.000.000</td><td>1.000.000.000</td></tr>
+    </tbody>
+    <tfoot><tr><td><strong>TỔNG HẠN MỨC BẢO HIỂM (VNĐ)</strong></td><td><strong>500.000.000</strong></td><td><strong>1.000.000.000</strong></td></tr></tfoot>
+  </table>
+
+  <div class="st pbr">Điều kiện tham gia — Bên được bảo hiểm xác nhận</div>
+  <div class="cb2">
+    <div class="ci">${cbChecked}<div>Doanh thu hàng năm dưới 26 tỷ VNĐ (tương đương 1 triệu USD)</div></div>
+    <div class="ci">${cbChecked}<div>Không phải là công ty con của công ty nước ngoài</div></div>
+    <div class="ci">${cbChecked}<div>Không có tổn thất liên quan đến an ninh mạng trong vòng 3 năm gần nhất</div></div>
+    <div class="ci">${cbChecked}<div>Tại thời điểm tham gia, chưa bị xử phạt do vi phạm về lộ lọt dữ liệu</div></div>
+    <div class="ci">${cbChecked}<div>Tại thời điểm tham gia, không nhận thức được bất kỳ tình huống lộ lọt dữ liệu nào đang tồn tại</div></div>
+  </div>
+
+  <div class="nb"><strong>Lưu ý:</strong> Theo quy định pháp luật, doanh nghiệp có nghĩa vụ thông báo sự cố an ninh mạng tới cơ quan có thẩm quyền trong vòng <strong>72 giờ</strong> kể từ khi phát hiện. PVI sẽ hỗ trợ cung cấp mẫu khai báo chuẩn để đơn giản hóa thủ tục. Để khai báo sự cố, vui lòng liên hệ hotline PVI hoặc cán bộ phụ trách.</div>
+  <div class="nb2">Quý khách vui lòng xem thêm Quy tắc bảo hiểm tại mã QR code được gắn trên Giấy chứng nhận bảo hiểm này hoặc tải <a href="https://bh.pvi.com.vn/file/qtbh_oto_2024.pdf" target="_blank" style="color:var(--accent2);font-weight:700;">TẠI ĐÂY</a>. <strong style="color:#0c4a6e;">Lưu ý:</strong> Bảo hiểm PVI sẽ không nhận bảo hiểm trong trường hợp Người được bảo hiểm không thuộc đối tượng được tham gia bảo hiểm quy định theo chương trình bảo hiểm này.</div>
+
+  <div class="cf">
+    <div class="fr-rule">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=https://bh.pvi.com.vn/file/qtbh_oto_2024.pdf&color=0F2A4A&bgcolor=ffffff" alt="QR QTBH" style="width:90px;height:90px;border:1px solid var(--border);border-radius:4px;display:block;">
+      <div style="font-size:.62rem;color:var(--light);line-height:1.4;">
+        <strong style="color:var(--navy);display:block;">Quy tắc bảo hiểm</strong>
+        Quét QR để xem<br>PVI CyberShield SME
+      </div>
+    </div>
+    <div class="sb">
+      <div class="sc">
+        <div class="sct">Bên Được Bảo Hiểm</div>
+        <div class="scs">(Ký, ghi rõ họ tên)</div>
+        <div class="scl">Họ và tên: ${buyer}</div>
+      </div>
+      <div class="sc">
+        <div class="sct">Đại Diện Bảo Hiểm PVI</div>
+        <div class="scs">(Ký tên, đóng dấu đỏ)</div>
+        <div class="scl">Chức danh: ................................</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pbtn"><button onclick="window.print()">🖨️ In Giấy Chứng Nhận</button></div>
+</body></html>`;
+  }
+
+  function downloadGCNBH() {
+    const win = window.open('', '_blank');
+    if (!win) { alert('Vui lòng cho phép mở tab mới để tải GCNBH.'); return; }
+    win.document.write(gcnbhHTML());
+    win.document.close();
+    setTimeout(() => { win.focus(); win.print(); }, 700);
+  }
+
+  function printGCNBH() { downloadGCNBH(); }
+
+  function demoFill() {
+    document.getElementById('b_company').value = 'Công ty TNHH Công Nghệ ABC';
+    document.getElementById('b_tax').value = '0123456789';
+    document.getElementById('b_rep').value = 'Nguyễn Văn Hùng';
+    document.getElementById('b_addr').value = '45 Lý Thường Kiệt, Hoàn Kiếm, Hà Nội';
+    document.getElementById('b_buyer').value = 'Trần Thị Mai';
+    document.getElementById('b_phone').value = '0901 234 567';
+    document.getElementById('b_email').value = 'demo@abctech.vn';
+    ['elig1','elig2','elig3','elig4','elig5','eligAll'].forEach(id => { document.getElementById(id).checked = true; });
+  }
+
+  function sendGCNBHEmail(btn) {
+    const email = document.getElementById('b_email').value;
+    const buyer = document.getElementById('b_buyer').value;
+    const company = document.getElementById('b_company').value;
+    const orig = btn.innerHTML;
+    btn.textContent = '✓ Đã gửi!';
+    btn.style.background = '#dcfce7';
+    btn.style.color = '#166534';
+    btn.disabled = true;
+    // Trigger mailto as fallback (production: call backend API)
+    const subject = encodeURIComponent('GCNBH Cyber Shield SME – ' + currentPolicyId);
+    const body = encodeURIComponent(
+      'Kính gửi ' + buyer + ',\n\n' +
+      'Giấy Chứng Nhận Bảo Hiểm của quý doanh nghiệp:\n' +
+      '• Số GCNBH: ' + currentPolicyId + '\n' +
+      '• Doanh nghiệp: ' + company + '\n' +
+      '• Gói: ' + pkgData[selectedPkg].label + '\n' +
+      '• Hotline hỗ trợ: 1900 545 515\n\n' +
+      'Trân trọng,\nBảo hiểm PVI'
+    );
+    window.open('mailto:' + email + '?subject=' + subject + '&body=' + body, '_blank');
+    setTimeout(() => { btn.innerHTML = orig; btn.style = ''; btn.disabled = false; }, 3000);
   }
 
   // ── CONSULT MODAL
