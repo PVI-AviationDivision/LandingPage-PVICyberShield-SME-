@@ -485,18 +485,19 @@
   .modal-overlay {
     display: none; position: fixed; inset: 0; z-index: 2000;
     background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);
-    align-items: center; justify-content: center; padding: 20px;
+    align-items: flex-start; justify-content: center;
+    padding: 24px 20px; overflow-y: auto;
   }
   .modal-overlay.active { display: flex; }
   .modal-box {
     background: #fff; border-radius: 20px; width: 100%; max-width: 520px;
-    max-height: 90vh; overflow-y: auto; position: relative;
-    animation: modalIn 0.3s ease;
+    position: relative; animation: modalIn 0.3s ease;
+    margin: auto 0;
   }
   @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(20px); } to { opacity: 1; transform: none; } }
   .modal-header {
-    background: var(--pvi-blue); padding: 24px 28px 20px;
-    border-radius: 20px 20px 0 0; position: sticky; top: 0;
+    background: var(--pvi-blue); padding: 18px 22px 16px;
+    border-radius: 20px 20px 0 0;
     display: flex; align-items: center; justify-content: space-between;
     border-bottom: 1px solid rgba(255,255,255,0.15);
   }
@@ -657,7 +658,7 @@
     <a href="#process">Cách mua</a>
     <a href="#faq">FAQ</a>
   </div>
-  <a href="#" class="nav-cta" onclick="openBuyModal(); return false;">Mua ngay →</a>
+  <a href="#" class="nav-cta" onclick="openEsalesModal(); return false;">Mua ngay →</a>
 </nav>
 
 <!-- ── HERO ── -->
@@ -715,7 +716,7 @@
       Cyber Shield SME bảo vệ tài chính doanh nghiệp trước sự cố an ninh mạng — từ chi phí khắc phục, tiền phạt pháp lý đến bồi thường bên thứ ba. Cấp đơn trực tuyến 100%, hiệu lực ngay trong ngày.
     </p>
     <div class="hero-actions">
-      <a href="#" class="btn-primary" onclick="openBuyModal(); return false;">🛡️ Mua bảo hiểm ngay</a>
+      <a href="#" class="btn-primary" onclick="openEsalesModal(); return false;">🛡️ Mua bảo hiểm ngay</a>
       <a href="#coverage" class="btn-outline">Xem quyền lợi bảo hiểm</a>
     </div>
     <div class="hero-stats">
@@ -879,15 +880,11 @@
     <div class="price-card featured">
       <div class="price-badge">Gói 1 · Doanh thu &lt; 10 tỷ / năm</div>
       <div class="price-tier">Phí bảo hiểm</div>
-      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
-        <div>
-          <div class="price-amount">2.600.000 <span>VNĐ / năm</span></div>
-        </div>
-        <div style="text-align: right;">
-          <div style="font-size: 0.75rem; font-weight: 700; color: var(--pvi-blue); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Hạn mức bảo vệ</div>
-          <div style="font-size: 1.9rem; font-weight: 900; color: #00875a; line-height: 1;">500.000.000</div>
-          <div style="font-size: 0.82rem; color: #64748b;">VNĐ tối đa / năm</div>
-        </div>
+      <div class="price-amount">2.600.000 <span>VNĐ / năm</span></div>
+      <div style="text-align: right; margin-top: 8px;">
+        <div style="font-size: 0.75rem; font-weight: 700; color: var(--pvi-blue); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">Hạn mức bảo vệ</div>
+        <div style="font-size: 1.9rem; font-weight: 900; color: #00875a; line-height: 1;">500.000.000</div>
+        <div style="font-size: 0.82rem; color: #64748b;">VNĐ tối đa / năm</div>
       </div>
       <hr class="price-divider">
       <ul class="price-features">
@@ -900,27 +897,23 @@
       </ul>
       <p class="price-note">Miễn thường: 8.000.000 VNĐ/vụ</p>
       <div class="price-cta">
-        <a href="#" class="btn-primary" onclick="openBuyModal(1); return false;">Mua ngay — Hiệu lực hôm nay</a>
+        <a href="#" class="btn-primary" onclick="openEsalesModal(); return false;">Mua ngay — Hiệu lực hôm nay</a>
       </div>
     </div>
     <!-- GÓI 2 -->
     <div class="price-card featured" style="border-color: #0052cc;">
       <div class="price-badge" style="background: #0052cc; color: #fff;">Gói 2 · Doanh thu 10 – 20 tỷ / năm</div>
       <div class="price-tier">Phí bảo hiểm</div>
-      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
-        <div>
-          <div class="price-amount">5.000.000 <span>VNĐ / năm</span></div>
-        </div>
-        <div style="text-align: right;">
-          <div style="font-size: 0.75rem; font-weight: 700; color: var(--pvi-blue); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Hạn mức bảo vệ</div>
-          <div style="font-size: 1.9rem; font-weight: 900; color: #00875a; line-height: 1;">1.000.000.000</div>
-          <div style="font-size: 0.82rem; color: #64748b;">VNĐ tối đa / năm</div>
-        </div>
+      <div class="price-amount">5.000.000 <span>VNĐ / năm</span></div>
+      <div style="text-align: right; margin-top: 8px;">
+        <div style="font-size: 0.75rem; font-weight: 700; color: var(--pvi-blue); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">Hạn mức bảo vệ</div>
+        <div style="font-size: 1.9rem; font-weight: 900; color: #00875a; line-height: 1;">1.000.000.000</div>
+        <div style="font-size: 0.82rem; color: #64748b;">VNĐ tối đa / năm</div>
       </div>
       <hr class="price-divider">
       <ul class="price-features">
-        <li><span class="check">✓</span> Chi phí khôi phục dữ liệu cá nhân (tới 250.000.000 VNĐ)</li>
-        <li><span class="check">✓</span> Chi phí tư vấn quản lý khủng hoảng (tới 100.000.000 VNĐ)</li>
+        <li><span class="check">✓</span> Chi phí khôi phục dữ liệu cá nhân (tới 500.000.000 VNĐ)</li>
+        <li><span class="check">✓</span> Chi phí tư vấn quản lý khủng hoảng (tới 200.000.000 VNĐ)</li>
         <li><span class="check">✓</span> Tiền phạt pháp lý do lộ lọt dữ liệu</li>
         <li><span class="check">✓</span> Trách nhiệm pháp lý với bên thứ ba</li>
         <li><span class="check">✓</span> Cấp đơn bảo hiểm điện tử (e-Policy) 100% trực tuyến</li>
@@ -928,7 +921,7 @@
       </ul>
       <p class="price-note">Miễn thường: 8.000.000 VNĐ/vụ</p>
       <div class="price-cta">
-        <a href="#" class="btn-primary" onclick="openBuyModal(2); return false;">Mua ngay — Hiệu lực hôm nay</a>
+        <a href="#" class="btn-primary" onclick="openEsalesModal(); return false;">Mua ngay — Hiệu lực hôm nay</a>
       </div>
     </div>
   </div>
@@ -968,7 +961,7 @@
     </div>
   </div>
   <div style="text-align: center; margin-top: 40px;">
-    <a href="#" class="btn-primary" onclick="openBuyModal(); return false;" style="display: inline-block; font-size: 1.05rem; padding: 15px 40px;">Bắt đầu mua ngay</a>
+    <a href="#" class="btn-primary" onclick="openEsalesModal(); return false;" style="display: inline-block; font-size: 1.05rem; padding: 15px 40px;">Bắt đầu mua ngay</a>
   </div>
 </section>
 
@@ -1101,7 +1094,21 @@
 <!-- ── FLOATING CTA ── -->
 <div class="floating-cta" id="floatingCta" style="display: none;">
   <button class="floating-btn secondary" onclick="openConsultModal()">💬 Tư vấn miễn phí</button>
-  <button class="floating-btn" onclick="openBuyModal()">🛡️ Mua ngay</button>
+  <button class="floating-btn" onclick="openEsalesModal()">🛡️ Mua ngay</button>
+</div>
+
+<!-- ══════════════ ESALES IFRAME MODAL ══════════════ -->
+<div class="modal-overlay" id="esalesModal" style="align-items:center;">
+  <div class="modal-box" style="max-width:900px; width:96vw; height:90vh; display:flex; flex-direction:column;">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">🛡️ Mua bảo hiểm Cyber Shield SME</div>
+        <div class="modal-subtitle">Hệ thống phát hành đơn trực tuyến PVI</div>
+      </div>
+      <button class="modal-close" onclick="document.getElementById('esalesModal').classList.remove('active'); document.getElementById('esalesFrame').src='about:blank';">✕</button>
+    </div>
+    <iframe id="esalesFrame" src="about:blank" style="flex:1; border:none; border-radius:0 0 20px 20px;" allowfullscreen></iframe>
+  </div>
 </div>
 
 <!-- ══════════════ PURCHASE MODAL ══════════════ -->
@@ -1452,6 +1459,13 @@
       document.getElementById('eligAll').checked = allChecked;
     }
   });
+
+  function openEsalesModal() {
+    const m = document.getElementById('esalesModal');
+    const f = document.getElementById('esalesFrame');
+    f.src = 'https://esales.pvi.com.vn/';
+    m.classList.add('active');
+  }
 
   function closeBuyModal() {
     document.getElementById('buyModal').classList.remove('active');
